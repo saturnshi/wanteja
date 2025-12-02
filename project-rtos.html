@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RTOS Laboratory Project</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="blob matcha" style="top:-60px; right:-80px;"></div>
+<div class="blob strawberry" style="bottom:-70px; left:-80px;"></div>
+
+<nav>
+    <div class="logo"><strong>Teja</strong></div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="academics.html">Academics</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="card">
+        <h1>RTOS Laboratory Project</h1>
+        <div class="divider"></div>
+
+        <p>
+            This lab introduced real-time operating system concepts using virtualized Linux 
+            environments (Bodhi Linux & Antergos) and MonoDevelop for application-level tasks.
+            It focused on understanding system performance, process scheduling, and latency.
+        </p>
+    </div>
+
+    <!-- Photos -->
+    <div class="card">
+        <h2>📸 Screenshots Coming Soon</h2>
+        <p>You can later upload OS screenshots into <code>assets/img/projects/</code>.</p>
+    </div>
+
+    <!-- Objectives -->
+    <div class="card">
+        <h2>🎯 Objectives</h2>
+        <ul>
+            <li>Install and configure Bodhi Linux & Antergos in a VM.</li>
+            <li>Explore RTOS characteristics such as deterministic timing and scheduling.</li>
+            <li>Perform benchmarking tasks and analyze CPU usage.</li>
+            <li>Develop simple applications using MonoDevelop IDE.</li>
+        </ul>
+    </div>
+
+    <!-- Tools -->
+    <div class="card">
+        <h2>🛠️ Tools & Software</h2>
+        <ul>
+            <li>VMware / VirtualBox</li>
+            <li>Bodhi Linux, Antergos</li>
+            <li>MonoDevelop IDE</li>
+            <li>Terminal utilities (top, htop, system monitor)</li>
+        </ul>
+    </div>
+
+    <!-- System Diagram -->
+    <div class="card">
+        <h2>📦 System Architecture</h2>
+<pre>
+     [ Host Machine ]
+            |
+            v
+     [ Virtual Machine Software ]
+            |
+            v
+    +-----------------------------+
+    | Linux Distro (Bodhi/Antergos) |
+    |  - Scheduler                 |
+    |  - Processes                 |
+    |  - Threads                   |
+    |  - Timing / Latency Tools   |
+    +-----------------------------+
+</pre>
+    </div>
+
+    <!-- Flowchart -->
+    <div class="card">
+        <h2>🔄 Workflow</h2>
+
+<pre>
+            ┌──────────────┐
+            │   START       │
+            └──────┬───────┘
+                   ↓
+     ┌──────────────────────────┐
+     │ Install Linux in VM      │
+     └──────────┬──────────────┘
+                ↓
+     ┌──────────────────────────┐
+     │ Configure RTOS tools     │
+     └──────────┬──────────────┘
+                ↓
+     ┌──────────────────────────┐
+     │ Run performance tests    │
+     └──────────┬──────────────┘
+                ↓
+     ┌──────────────────────────┐
+     │ Analyze timing & CPU     │
+     └──────────┬──────────────┘
+                ↓
+            ┌──────────────┐
+            │     END       │
+            └──────────────┘
+</pre>
+
+    </div>
+
+    <!-- Key Concepts -->
+    <div class="card">
+        <h2>📚 What I Learned</h2>
+        <ul>
+            <li>Difference between standard Linux and RTOS behavior</li>
+            <li>Scheduling algorithms (FCFS, Round Robin)</li>
+            <li>How CPU load influences latency</li>
+            <li>Basic application building in MonoDevelop</li>
+        </ul>
+    </div>
+
+    <!-- Improvements -->
+    <div class="card">
+        <h2>✨ Future Improvements</h2>
+        <ul>
+            <li>Test with an actual RTOS such as FreeRTOS on microcontrollers</li>
+            <li>Compare more distros and schedulers</li>
+            <li>Create automated benchmarking scripts</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    Made with 🍵 matcha + 🍓 strawberry by Teja © 2025
+</footer>
+
+</body>
+</html>
