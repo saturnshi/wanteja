@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RFID Security Donation Box</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<!-- Aesthetic blobs -->
+<div class="blob matcha" style="top:-80px; right:-80px;"></div>
+<div class="blob strawberry" style="bottom:-120px; left:-60px;"></div>
+
+<nav>
+    <div class="logo"><strong>Teja</strong></div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="academics.html">Academics</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h1>RFID Security Mosque Donation Box</h1>
+        <div class="divider"></div>
+        <p>
+            My Final Year Project: A smart donation box secured using RFID authentication,
+            ultrasonic donation-level detection, and IoT alerts via Telegram.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>📸 Project Photos (Coming Soon)</h2>
+        <p>You can upload images later into <code>assets/img/projects/</code>.</p>
+    </div>
+
+    <div class="card">
+        <h2>🔎 Problem Statement</h2>
+        <p>
+            Donation boxes in mosques typically use padlocks, which offer limited security.
+            Theft attempts are hard to detect and there is no automated monitoring.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🎯 Objectives</h2>
+        <ul>
+            <li>Use RFID cards for authorized access.</li>
+            <li>Detect donation level using an ultrasonic sensor.</li>
+            <li>Send IoT alerts to Telegram when the box is opened or full.</li>
+            <li>Increase security compared to traditional locks.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🔌 Hardware Used</h2>
+        <ul>
+            <li>NodeMCU ESP8266</li>
+            <li>RC522 RFID Module</li>
+            <li>Ultrasonic sensor</li>
+            <li>Solenoid lock</li>
+            <li>Jumper wires & power</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>📦 System Block Diagram</h2>
+<pre>
+     [RFID Reader] ----\
+                        \
+                        --> [NodeMCU] --> [Telegram Alert]
+                        /
+     [Ultrasonic] ----/
+                      \
+                       --> [Solenoid Lock]
+</pre>
+    </div>
+
+    <div class="card">
+        <h2>🔄 System Flowchart</h2>
+<pre>
+          ┌──────────────┐
+          │   START       │
+          └──────┬───────┘
+                 ↓
+     ┌─────────────────────────┐
+     │ Scan RFID Card          │
+     └─────────┬──────────────┘
+               ↓
+     ┌─────────────────────────┐
+     │ Authorized?             │── No → Retry
+     └─────────┬──────────────┘
+               ↓ Yes
+     ┌─────────────────────────┐
+     │ Unlock Solenoid         │
+     └─────────┬──────────────┘
+               ↓
+     ┌─────────────────────────┐
+     │ Measure Donation Level  │
+     └─────────┬──────────────┘
+               ↓
+     ┌─────────────────────────┐
+     │ Full? → Send Telegram   │
+     └─────────┬──────────────┘
+               ↓
+          ┌──────────────┐
+          │     END       │
+          └──────────────┘
+</pre>
+    </div>
+
+    <div class="card">
+        <h2>💻 Key Code Snippets</h2>
+
+        <p><strong>RFID UID Reading:</strong></p>
+<pre>
+if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial()) {
+    String uid = "";
+    for (byte i = 0; i < mfrc522.uid.size; i++) {
+        uid += String(mfrc522.uid.uidByte[i], HEX);
+    }
+}
+</pre>
+
+        <p><strong>Ultrasonic Measurement:</strong></p>
+<pre>
+duration = pulseIn(echoPin, HIGH);
+distance = (duration * 0.034) / 2;
+</pre>
+
+        <p><strong>Telegram Notification:</strong></p>
+<pre>
+if (distance < 10) {
+    bot.sendMessage(chatID, "Donation box is full!");
+}
+</pre>
+
+    </div>
+
+    <div class="card">
+        <h2>📊 Results</h2>
+        <ul>
+            <li>RFID authentication works reliably.</li>
+            <li>Ultrasonic sensor detects donation height.</li>
+            <li>Telegram receives real-time alerts.</li>
+            <li>Secure alternative to padlocked donation boxes.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>📚 Lessons Learned</h2>
+        <ul>
+            <li>RFID card communication process</li>
+            <li>IoT integration with Telegram Bot API</li>
+            <li>Debugging power supply issues in hardware</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>✨ Future Improvements</h2>
+        <ul>
+            <li>Add weight sensor for more accuracy</li>
+            <li>Add tamper detection sensor</li>
+            <li>Use a metal enclosure</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    Made with 🍵 matcha + 🍓 strawberry by Teja © 2025
+</footer>
+
+</body>
+</html>
